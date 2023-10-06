@@ -2,7 +2,7 @@
 
 Every year, The US Social Security Administration releases data regarding the most popular baby names of that year. Included in the dataset are the names given to newborn babies, the sex of the babies who were given that name, and the number of babies who were given that name. The data is sorted by the number of babies given a specific name, such that the most frequently given names appear first in the list. The list reports all female names first, followed by the male names.
 
-## Your Task
+## Program Description
 
 This project turns the data into something that people can easily query and explore.
 
@@ -20,7 +20,7 @@ The program:
 -   finds and report to the user the total number of babies in the US that have been given that name
 -   has unit tests for all functions that perform calculations (including the function that reads one file).
 
-## Standards the program meets
+## Standards Met
 
 - **Functions**: Appropriately splits code into functions according to the single responsibility principle, correctly utilizing parameters and return values.
 - **Input/Output**: Demonstrates knowledge of file input and output, working with buffers, and understands potential efficiency concerns.
