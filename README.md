@@ -2,27 +2,31 @@
 
 Every year, The US Social Security Administration releases data regarding the most popular baby names of that year. Included in the dataset are the names given to newborn babies, the sex of the babies who were given that name, and the number of babies who were given that name. The data is sorted by the number of babies given a specific name, such that the most frequently given names appear first in the list. The list reports all female names first, followed by the male names.
 
-You should download this national dataset here: <https://www.ssa.gov/oact/babynames/limits.html>
-
-There are also downloads for state- and territory-level data. We will not deal with these in the main part of the assignment, but you may explore them for extra credit.
-
 ## Your Task
 
-It's awesome that the SSA provides this data, but it isn't all that easy to use in it's current state. It's your job to turn the data into something that people can easily query and explore.
+This project turns the data into something that people can easily query and explore.
 
-Your program should:
+The program:
 
--   ask users which baby name they'd like to know more about and the sex of the babies with that name
--   find all of the years where that name was listed as popular and record that information
-    -   record the year
-    -   record the count of babies given that name in that year
-    -   record the "popularity ranking". The most popular name for a given sex in a given year should be `1`, the second-most popular name should be `2`, etc.
--   report to the user statistics about the first year that name was popular
--   find and report to the user statistics about the year where the name was the most popular (the year with the lowest popularity ranking). In the case that several years tie for the lowest popularity ranking, choose the year with the highest count of babies. If both the popularity and the count are the same, choose the year that occurred first
--   find and report to the user statistics about the year where the name was given to the most babies (the year with the highest baby count). In the case that several years tie for the highest baby count, choose the year with the lowest popularity ranking. If both the popularity and the count are the same, choose the year that occurred first
--   find and report to the user the number of years that name has been popular
--   find and report to the user the total number of babies in the US that have been given that name
--   write unit tests for all functions that perform calculations (including the function that reads one file).
+-   asks users which baby name they'd like to know more about and the sex of the babies with that name
+-   finds all of the years where that name was listed as popular and record that information
+    -   records the year
+    -   records the count of babies given that name in that year
+    -   records the "popularity ranking". The most popular name for a given sex in a given year should be `1`, the second-most popular name should be `2`, etc.
+-   reports to the user statistics about the first year that name was popular
+-   finds and report to the user statistics about the year where the name was the most popular (the year with the lowest popularity ranking). In the case that several years tie for the lowest popularity ranking, choose the year with the highest count of babies. If both the popularity and the count are the same, choose the year that occurred first
+-   finds and report to the user statistics about the year where the name was given to the most babies (the year with the highest baby count). In the case that several years tie for the highest baby count, choose the year with the lowest popularity ranking. If both the popularity and the count are the same, choose the year that occurred first
+-   finds and report to the user the number of years that name has been popular
+-   finds and report to the user the total number of babies in the US that have been given that name
+-   has unit tests for all functions that perform calculations (including the function that reads one file).
+
+## Standards the program meets
+
+- **Functions**: Appropriately splits code into functions according to the single responsibility principle, correctly utilizing parameters and return values.
+- **Input/Output**: Demonstrates knowledge of file input and output, working with buffers, and understands potential efficiency concerns.
+- **Code Mechanics**: Chooses appropriate data types and structures, uses those types and structures effectively, and continues to make good choices over time.
+- **Code Style**: Code written in an industry-standard coding style.
+- **Software Engineering Skills**: Software produced by following industry-standard practices, including code reading, use of remote repositories, and software testing.
 
 ### A Note About Ties:
 
@@ -130,80 +134,3 @@ Here is an example of program output for the name Val among female babies:
       1976 - Val was ranked 747th for female babies (5 babies given that name)
       1980 - Val was ranked 799th for female babies (6 babies given that name)
       1985 - Val was ranked 801st for female babies (5 babies given that name)
-
-Another example of program output for the name Knightley among male babies:
-
-    Welcome to the Baby Name Genie!
-    I can tell you information about the history of first names across three centuries!
-    What first name would you like to learn more about? Knightley
-    Which sex would you like statistics for? (F for female, M for male): M
-    Okay! Let me see what I can find about male babies named "Knightley".
-
-    ..
-    ....
-    ...
-    ....
-    ...
-
-    Okay, here's what I found:
-    * Knightley first appeared as a popular male first name in 2012, at which time
-      it was ranked 887th. There were 5 male babies named Knightley that year.
-    * Knightley reached peak popularity in 2013, at which time it was ranked 883rd.
-      There were 5 male babies named Knightley that year.
-    * The name Knightley was given to the most babies in 2013 (5 male babies were
-      named Knightley in 2013). Knightley was the 883rd most popular male name that year.
-    * Of the 3 years that Knightley has been a popular male name, 15 male
-      babies have been named Knightley and its average popularity has been 897th.
-    Full information about the years when Knightley was popular as a male name:
-      2012 - Knightley was ranked 887th for male babies (5 babies given that name)
-      2013 - Knightley was ranked 883rd for male babies (5 babies given that name)
-      2019 - Knightley was ranked 921st for male babies (5 babies given that name)
-
-
-Consider one last example, where a user provides a name and sex combination that doesn't have any associated data.
-
-    Welcome to the Baby Name Genie!
-    I can tell you information about the history of first names across three centuries!
-    What first name would you like to learn more about? Dootamus
-    Which sex would you like statistics for? (F for female, M for male): M
-    Okay! Let me see what I can find about male babies named "Dootamus".
-
-    ..
-    ....
-    ...
-    ....
-    ...
-
-    I'm sorry for the inconvenience, but I couldn't find any information about male
-    babies named "Dootamus".
-
-## Details to Notice
-
--   Notice that popularity rankings are written in readable english ("11th", rather than "11").
--   Notice that baby counts are written with commas between number groups.
--   Notice that years are only listed/included in calculations if the user-provided name was popular in that year.
--   Notice the "pretty" printing of "male" and "female", rather than "M" or "MALE".
-
-## Plan of Action
-
-A plan of action for completing this assignment might proceed as follows:
-
-1.  Write a class to hold the data for a given name in a given year. Write unit tests for any function more complicated than the simplest getter/setter.
-2.  Ensure that the SSA data is included in your workspace. Write a function that reads a file, searches for a given name/sex combination, and returns an object of the class you created in step 1 above. Write unit tests for your function that reads a small test file and returns an object with the correct values. You may find the `split()` function from the `String` class helpful.
-3.  Write a function that loops through all of the years of the data and maintains a collection of the objects returned by your function in step 2.
-4.  One-by-one, start writing functions to find the statistics mentioned above (the first year, the most popular year, the year with the highest count, the total number, the average popularity, etc.). Write unit tests for your functions, making sure to test the edge cases (ties in popularity rank, ties in both popularity rank and baby count, etc.).
-5.  Start working on your output, attacking the little details as necessary.
-6.  Reorganize and improve your code incrementally until you are pleased with your architecture.
-
-## Extra Credit
-
-For up to 5 points of extra credit, explore the states and territories data provided by the SSA. For you to receive the points, users should be able to specify whether they want national statistics or the statistics for a specific state. If the user selects a state, output results for the state first, followed by the results for the national data.
-
-## Homework 10 Objectives
-
-- **Functions**: Appropriately split code into functions according to the single responsibility principle, correctly utilizing parameters and return values.
-- **Input/Output**: Demonstrates knowledge of file input and output, working with buffers, and understands potential efficiency concerns.
-- **Meets Spec**: Write software that meets provided requirements and specifications.
-- **Code Mechanics**: Choose appropriate data types and structures, use those types and structures effectively, and continue to make good choices over time.
-- **Code Style**: Write code in an industry-standard coding style.
-- **Software Engineering Skills**: Produce software by following industry-standard practices, including code reading, use of remote repositories, and software testing.
